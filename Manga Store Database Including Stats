@@ -1,0 +1,79 @@
+--Create a store database--
+
+CREATE TABLE arial_manga_store
+(manga_id_num INTEGER,
+title TEXT,
+author TEXT,
+genre TEXT,
+total_volumes INTEGER,
+conclusion_status TEXT,
+price NUMERIC);
+
+--Insert values into store database--
+
+INSERT INTO arial_manga_store
+VALUES
+(1, 'Othello', 'Satomi Ikezawa', 'Romance', 7, 'Concluded', 6.99);
+INSERT INTO arial_manga_store
+VALUES
+(2, 'Dragon Ball', 'Akira Toriyama', 'Action', 42, 'Concluded', 7.99);
+INSERT INTO arial_manga_store
+VALUES
+(3, 'Red Data Girl', 'Noriko Ogiwara', 'Fantasy', 5, 'Concluded', 6.99);
+INSERT INTO arial_manga_store
+VALUES
+(4, 'Bleach', 'Tite Kubo',  'Adventure', 74, 'Concluded', 7.99);
+INSERT INTO arial_manga_store
+VALUES
+(5, 'Attack on Titan', 'Hajime Isayama', 'Dark Fantasy', 34, 'Concluded', 9.99);
+INSERT INTO arial_manga_store
+VALUES
+(6, 'Skip Beat' , 'Yoshiki Nakamura', 'Romance', 49, 'Ongoing', 7.49);
+INSERT INTO arial_manga_store
+VALUES
+(7, 'From Far Away', 'Kyoko Hikawa', 'Fantasy', 14, 'Concluded', 6.49);
+INSERT INTO arial_manga_store
+VALUES
+(8, 'Prince of Tennis', 'Takeshi Konomi', 'Sports', 42,  'Concluded', 8.99);
+INSERT INTO arial_manga_store
+VALUES
+(9, 'Hikaru No Go', 'Yuri Hotta', 'Sports', 23, 'Concluded', 7.99);
+INSERT INTO arial_manga_store
+VALUES
+(10, 'Mars', 'Fuyumi Soryo', 'Drama', 15, 'Concluded', 6.49);
+INSERT INTO arial_manga_store
+VALUES
+(11, 'One Punch Man', 'ONE', 'Action Comedy', 28, 'Ongoing', 8.49);
+INSERT INTO arial_manga_store
+VALUES
+(12, 'Mashel', 'Hajime Komoto', 'Action Comedy', 17, 'Concluded', 7.99);
+INSERT INTO arial_manga_store
+VALUES
+(13, 'Sailor Moon', 'Naoko Takeuchi', 'Magical Girl', 18, 'Concluded', 7.99);
+INSERT INTO arial_manga_store
+VALUES
+(14, 'Inuyasha', 'Rumiko Takahashi', 'Fantasy Romance', 56, 'Concluded', 7.49);
+INSERT INTO arial_manga_store
+VALUES
+(15, 'Claymore', 'Norihiro Yagi', 'Dark Fantasy', 27, 'Concluded', 6.99); 
+
+--What is the average price for each manga?
+SELECT ROUND(AVG(PRICE), 2)
+FROM arial_manga_store;
+
+--Which manga has the most volumes?
+SELECT title, MAX(total_volumes) AS most_volume_manga
+FROM arial_manga_store;
+
+--What genres are there to choose from?
+SELECT DISTINCT genre
+FROM arial_manga_store;
+
+--What mangas are ongoing and haven't been concluded, yet?
+SELECT title AS ongoing_manga
+FROM arial_manga_store
+WHERE conclusion_status = 'Ongoing';
+
+
+
+
